@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Cyclist Companion</title>
+<meta name="description" content="Help, answers and contact for Cyclist Companion — tyre pressure, gear ratios, a bike garage and a fit journal.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <img src="../assets/icon.png" alt="">
+  <a class="home" href="../">Cyclist Companion</a>
+</header>
+<nav class="site">
+  <a href="../">Overview</a>
+  <a href="../privacy/">Privacy</a>
+  <a href="../support/" aria-current="page">Support</a>
+  <a href="../methodology/">How pressure is calculated</a>
+</nav>
+
+<h1>Support</h1>
+<p class="lede">Answers to the things people ask most. If yours isn't here,
+email <a href="mailto:SUPPORT_EMAIL_HERE">SUPPORT_EMAIL_HERE</a> and you'll get
+a reply from a person.</p>
+
+<div class="note">
+  <p><strong>Reporting a problem?</strong> It helps enormously to include your
+  device and iOS version, the app version (shown in Backup &amp; Restore), and
+  what you were doing when it went wrong. A screenshot is worth a paragraph.</p>
+</div>
+
+<h2>Getting started</h2>
+
+<details>
+  <summary>How do I get a tyre pressure recommendation?</summary>
+  <p>Open the tyre pressure screen, pick your tyre's brand, model and width, and
+  enter your <em>system weight</em> — that is you, plus the bike, plus anything
+  you're carrying, in your riding kit. Then set the surface and riding style.
+  Front and rear are calculated separately.</p>
+  <p>If you've added the bike to your Stable, you can select it and the tyre
+  details fill in automatically.</p>
+</details>
+
+<details>
+  <summary>What is "system weight"?</summary>
+  <p>The total mass the tyres carry: rider in full kit, bike, bottles, tools,
+  bags and their contents. It is not your body weight alone. Getting this right
+  matters more than any other input — a 10 kg error moves the recommendation by
+  several psi.</p>
+</details>
+
+<details>
+  <summary>What does the weight distribution slider do?</summary>
+  <p>It sets how much of the system weight sits on the front wheel, which is why
+  the front and rear recommendations differ. A road bike carries roughly
+  45&ndash;48% on the front; a time trial or track bike more; a mountain bike
+  less. If you don't know yours, leave it at the default.</p>
+</details>
+
+<details>
+  <summary>My tyre isn't in the list.</summary>
+  <p>Pick any tyre of the same width and type — the calculation uses the width,
+  the casing type and your conditions, not the specific model, so the result
+  will be the same. You can also type a width in directly.</p>
+  <p>Then email us the make and model and it will go into the next update. This
+  is the most useful thing you can send us.</p>
+</details>
+
+<details>
+  <summary>My groupset isn't in the list.</summary>
+  <p>You can type chainrings and cassette cogs in directly as comma-separated
+  numbers — for example <code>50,34</code> and
+  <code>11,12,13,14,15,17,19,21,23,25,28,32</code> — and everything works the
+  same way.</p>
+  <p>As with tyres, tell us what's missing and it goes in the next update.</p>
+</details>
+
+<h2>Your data</h2>
+
+<details>
+  <summary>Where is my data stored?</summary>
+  <p>On your device, and nowhere else. The app has no account and makes no
+  network requests. See the <a href="../privacy/">privacy policy</a>.</p>
+</details>
+
+<details>
+  <summary>How do I move to a new phone?</summary>
+  <p>On the old phone, open Backup &amp; Restore and tap <strong>Export
+  backup</strong>. Save the JSON file somewhere you can reach from the new phone
+  — iCloud Drive, Google Drive, Dropbox, or email it to yourself. On the new
+  phone, install the app, open Backup &amp; Restore and tap <strong>Import
+  backup</strong>.</p>
+  <p>Importing replaces everything currently in the app, so export from the new
+  phone first if it already has data you want to keep.</p>
+</details>
+
+<details>
+  <summary>I deleted something by accident.</summary>
+  <p>There is no undo yet. If you have a recent backup, importing it will bring
+  the data back — but it replaces everything, so you would lose anything added
+  since that backup. Exporting a backup occasionally is worth the ten seconds.</p>
+</details>
+
+<details>
+  <summary>Does the app work offline?</summary>
+  <p>Entirely. It has no online mode to lose. Aeroplanes, alpine passes and
+  hotel wifi make no difference to it.</p>
+</details>
+
+<h2>Known limits</h2>
+
+<details>
+  <summary>Fat bikes and very wide tyres</summary>
+  <p>The pressure model is accurate for tyres up to roughly 65 mm. Above that
+  it over-estimates, so fat-bike riders should treat the number as an upper
+  bound and go by feel. Widening this range is on the list.</p>
+</details>
+
+<details>
+  <summary>Why is my recommendation capped?</summary>
+  <p>Tubeless setups are capped at 72 psi, the usual ceiling for hookless
+  tubeless rims. When a cap is applied the app tells you what the uncapped
+  figure would have been, so you can decide with your rim and tyre
+  manufacturer's limits in front of you.</p>
+</details>
+
+<details>
+  <summary>Is this a replacement for a professional bike fit?</summary>
+  <p>No. The fit journal is a notebook: it records the measurements you take and
+  shows you what changed between two sessions. It does not tell you what your
+  position should be, and it is not a substitute for a fitter.</p>
+</details>
+
+<h2>Accuracy</h2>
+<p>Pressure recommendations are <strong>starting points, not guarantees</strong>.
+Tyres, rims and riders vary. Always verify with an accurate gauge, and never
+exceed the maximum pressure printed on your tyre or specified by your rim
+manufacturer — particularly with hookless rims, where over-inflation can unseat
+a tyre.</p>
+<p>How the calculation works is explained in full on the
+<a href="../methodology/">methodology page</a>.</p>
+
+<h2>Contact</h2>
+<table>
+  <tr><td>Support and bug reports</td><td><a href="mailto:SUPPORT_EMAIL_HERE">SUPPORT_EMAIL_HERE</a></td></tr>
+  <tr><td>Missing tyre, wheel, bike or groupset</td><td><a href="mailto:SUPPORT_EMAIL_HERE">SUPPORT_EMAIL_HERE</a></td></tr>
+  <tr><td>Privacy</td><td><a href="../privacy/">Privacy policy</a></td></tr>
+</table>
+
+<footer class="site">
+  <p><a href="../">Cyclist Companion</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../methodology/">Methodology</a></p>
+  <p>Pressure recommendations are starting points. Always verify with an accurate gauge and stay within your rim and tyre manufacturer limits.</p>
+</footer>
+
+</div>
+</body>
+</html>

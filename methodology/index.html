@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How pressure is calculated — Cyclist Companion</title>
+<meta name="description" content="The tyre pressure model behind Cyclist Companion, in full: constant tyre drop, the casing and surface modifiers, and where the model stops being valid.">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <img src="../assets/icon.png" alt="">
+  <a class="home" href="../">Cyclist Companion</a>
+</header>
+<nav class="site">
+  <a href="../">Overview</a>
+  <a href="../privacy/">Privacy</a>
+  <a href="../support/">Support</a>
+  <a href="../methodology/" aria-current="page">How pressure is calculated</a>
+</nav>
+
+<h1>How pressure is calculated</h1>
+<p class="lede">No black box. Here is the whole model, including the parts where
+it stops being reliable.</p>
+
+<h2>The principle: constant tyre drop</h2>
+<p>A loaded tyre flattens slightly where it meets the road. The amount it
+flattens, as a proportion of its height, is called <em>tyre drop</em>. Decades
+of measurement suggest that a drop of roughly 15% is the sweet spot: enough
+deflection for the casing to absorb road texture, not so much that the tyre
+squirms, rolls slowly, or risks pinch-flatting.</p>
+<p>Working backwards from a target drop gives you a pressure. That pressure
+depends on two things above all: <strong>how much weight the tyre carries</strong>
+and <strong>how wide it is</strong>. Width matters enormously, because a wider
+casing has more air volume and a larger contact patch, so it needs far less
+pressure to carry the same load.</p>
+<p>This approach rests on the published tyre-drop research of
+<strong>Frank Berto</strong>, whose load-versus-pressure measurements are the
+foundation most modern pressure guidance is built on.</p>
+
+<h2>Step 1 — split the load</h2>
+<p>Your system weight — rider, bike, kit, bottles, luggage — is divided between
+the wheels according to the weight distribution you set. A road bike typically
+carries 45&ndash;48% on the front; a time trial or track bike more; a mountain
+bike less. Front and rear are then calculated independently, which is why they
+come out different, and why you can run different tyres at each end.</p>
+
+<h2>Step 2 — the base pressure</h2>
+<p>Each wheel's load and tyre width produce a base pressure. Pressure falls with
+the <em>square</em> of casing width, which is why going from 25 mm to 32 mm
+changes the answer so much more than most riders expect, plus a smaller linear
+term that keeps very narrow tyres realistic.</p>
+
+<h2>Step 3 — the modifiers</h2>
+<p>The base figure is then adjusted for what you are actually riding.</p>
+
+<h3>Casing and tube</h3>
+<p>A supple casing with less internal friction needs less pressure for the same
+feel; tubeless setups can run lower still because there is no tube to pinch.</p>
+<table>
+  <tr><th>Setup</th><th>Effect</th></tr>
+  <tr><td>Butyl inner tube</td><td>Baseline</td></tr>
+  <tr><td>Latex inner tube</td><td>−5%</td></tr>
+  <tr><td>Tubular</td><td>−8%</td></tr>
+  <tr><td>Tubeless</td><td>−12%</td></tr>
+  <tr><td>Tubeless with insert</td><td>−17%</td></tr>
+</table>
+
+<h3>Surface</h3>
+<p>Rough ground rewards lower pressure: the tyre absorbs impacts the bike would
+otherwise have to, which is both faster and more comfortable.</p>
+<table>
+  <tr><th>Surface</th><th>Effect</th></tr>
+  <tr><td>Indoor track</td><td>+15%</td></tr>
+  <tr><td>New pavement</td><td>Baseline</td></tr>
+  <tr><td>Worn pavement / chipseal</td><td>−5%</td></tr>
+  <tr><td>Hardpack gravel</td><td>−12%</td></tr>
+  <tr><td>Cobbles</td><td>−15%</td></tr>
+  <tr><td>Loose gravel / rough</td><td>−20%</td></tr>
+  <tr><td>Mountain bike singletrack</td><td>−28%</td></tr>
+</table>
+
+<h3>Riding style</h3>
+<p>Harder riding means bigger impacts and more cornering load, so a little more
+pressure buys protection against pinch flats and rim strikes.</p>
+<table>
+  <tr><th>Style</th><th>Effect</th></tr>
+  <tr><td>Recreational</td><td>−5%</td></tr>
+  <tr><td>Moderate</td><td>Baseline</td></tr>
+  <tr><td>Fast</td><td>+5%</td></tr>
+  <tr><td>Racing</td><td>+10%</td></tr>
+</table>
+
+<h2>Step 4 — safety limits</h2>
+<p>The result is held between 18 psi and a ceiling that depends on your setup:
+<strong>72 psi for tubeless</strong>, which is the usual maximum for hookless
+tubeless rims, and 140 psi otherwise.</p>
+<p>When a cap changes the answer, the app says so and shows you the uncapped
+figure as well. A capped number presented on its own would be misleading — you
+should know when the model wanted more pressure than your equipment allows, so
+you can check your own rim and tyre limits and decide.</p>
+
+<h2>Where this model stops being valid</h2>
+<div class="note">
+  <p><strong>Above roughly 65 mm, treat the number as an upper bound.</strong>
+  The width term that keeps narrow tyres honest over-estimates for very wide
+  casings, so fat bikes and 3-inch plus tyres will read high. Widening the
+  model's valid range is on the roadmap.</p>
+</div>
+<p>Two further honest caveats:</p>
+<ul>
+  <li><strong>Casings vary between makes.</strong> The model uses width, not the
+  specific model, so two 32 mm tyres with very different casings get the same
+  recommendation. In practice a supple, high-thread-count casing will feel good
+  a few psi lower than a stiff one.</li>
+  <li><strong>Temperature is not accounted for.</strong> Pressure rises with
+  heat. A tyre inflated in a cold garage will read higher after an hour in
+  the sun.</li>
+</ul>
+
+<h2>Use a gauge</h2>
+<p>These are starting points, not guarantees. Set the pressure with an accurate
+gauge, ride it, and adjust by two or three psi at a time until it feels right —
+your judgement over a few rides beats any calculator. Never exceed the maximum
+printed on your tyre or specified by your rim manufacturer. On hookless rims in
+particular, over-inflation can unseat a tyre at speed.</p>
+
+<footer class="site">
+  <p><a href="../">Cyclist Companion</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../support/">Support</a></p>
+  <p>Pressure recommendations are starting points. Always verify with an accurate gauge and stay within your rim and tyre manufacturer limits.</p>
+</footer>
+
+</div>
+</body>
+</html>
