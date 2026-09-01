@@ -16,16 +16,18 @@ JavaScript and no external requests.
 | `/support/` | Support and FAQ — **required by App Store Connect** |
 | `/methodology/` | How the tyre pressure model works |
 
-## Before submitting the app
+## Contact address
 
-Replace every occurrence of `SUPPORT_EMAIL_HERE` with a real, monitored address:
+The published support address is `support@velostables.com`, which appears once
+on the privacy page and three times on the support page. To change it:
 
 ```bash
-grep -rl SUPPORT_EMAIL_HERE . | xargs sed -i '' 's/SUPPORT_EMAIL_HERE/you@example.com/g'
+grep -rl support@velostables.com --include="*.html" . \
+  | xargs sed -i '' 's/support@velostables\.com/new@example.com/g'
 ```
 
-App Review does check that a support URL resolves and offers a way to make
-contact. A placeholder will not pass.
+App Review checks that the support URL resolves and offers a route to make
+contact, so this address needs to stay monitored.
 
 ## Local preview
 
