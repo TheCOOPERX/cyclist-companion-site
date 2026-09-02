@@ -1,7 +1,12 @@
 # Cyclist Companion — website
 
 The public site for the Cyclist Companion app: privacy policy, support, and the
-tyre pressure methodology. Served by GitHub Pages.
+tyre pressure methodology. Served by GitHub Pages at <https://velostables.com>.
+
+The custom domain is set by the `CNAME` file in this directory. DNS lives in
+Cloudflare: four A records on the apex pointing at GitHub's Pages addresses, and
+`www` as a CNAME to `thecooperx.github.io`. The Microsoft 365 `MX` and SPF `TXT`
+records are unrelated to hosting and must be left alone, or email breaks.
 
 The app's source lives in a separate private repository. Nothing here is
 generated from it — these are hand-written static pages with no build step, no
