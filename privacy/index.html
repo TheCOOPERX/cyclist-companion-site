@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Cyclist Companion</title>
-<meta name="description" content="Cyclist Companion collects no data. No account, no network calls, no analytics, no tracking. Everything stays on your device.">
+<meta name="description" content="Cyclist Companion collects no data. No account, no analytics, no tracking. Everything stays on your device; the only network use is Apple's in-app purchase.">
 <link rel="icon" href="../assets/favicon.png">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -23,13 +23,15 @@
 </nav>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated 2 September 2026</p>
+<p class="meta">Last updated 3 September 2026</p>
 
 <div class="claim">
   <p>Cyclist Companion collects nothing.</p>
-  <p>No account. No sign-up. No analytics. No advertising. No tracking. The app
-  makes no network requests at all, so there is no server for your data to go
-  to — because there is no server.</p>
+  <p>No account. No sign-up. No analytics. No advertising. No tracking. We run
+  no server, so there is nowhere for your data to go. The app talks to the
+  network in exactly one situation — buying or restoring the optional upgrade,
+  which is handled entirely by Apple — and even then nothing about you or your
+  bikes is sent.</p>
 </div>
 
 <h2>What the app stores, and where</h2>
@@ -55,11 +57,33 @@ where it goes — iCloud, Google Drive, Dropbox, email, or nowhere at all.</p>
 <p>Once you hand that file to another service, that service's own privacy policy
 governs it. We are not party to it and never receive a copy.</p>
 
+<h2>Buying the upgrade</h2>
+<p>Cyclist Companion Pro is a single one-time purchase, not a subscription. The
+purchase is handled by Apple's own in-app purchase system, which is the only
+part of the app that uses the network.</p>
+<p>When you open the upgrade screen the app asks Apple for the current price in
+your currency. If you buy, Apple takes the payment and tells the app whether it
+succeeded. <strong>We never see your card details, your billing address, your
+name or your Apple Account.</strong> Apple does not give them to us, and there is
+no server of ours for them to arrive at.</p>
+<p>All the app keeps is a single yes-or-no flag on your device recording that the
+unlock was bought. "Restore purchase" asks Apple whether this Apple Account has
+bought it before; that question is answered by Apple, and we are not told who
+asked. Apple's handling of the transaction is covered by
+<a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</p>
+<p>The app may also ask iOS to show Apple's standard "rate this app" prompt after
+you have used it a few times. That prompt is drawn by iOS, not by us: we are not
+told whether it appeared, what you rated, or whether you wrote anything.</p>
+
 <h2>Third-party code</h2>
 <p>The app is built with Flutter and uses a small number of open-source packages
-to talk to the operating system: local storage, the share sheet, the file picker
-and temporary file paths. None of them are advertising or analytics SDKs, and
-none of them transmit data off the device.</p>
+to talk to the operating system: local storage, the share sheet, the file picker,
+temporary file paths, and Apple's in-app purchase and app-review APIs. None of
+them are advertising or analytics SDKs. The purchase and review packages talk to
+Apple, as described above; none of them transmit your data off the device.</p>
+<p>We deliberately do not use a third-party billing service. Those services
+collect data about buyers, which would end the promise made at the top of this
+page in exchange for convenience a single one-time purchase does not need.</p>
 
 <h2>What the App Store sees</h2>
 <p>Apple and Google operate the stores the app is distributed through, and they
