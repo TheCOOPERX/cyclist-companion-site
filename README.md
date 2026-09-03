@@ -1,12 +1,24 @@
 # Cyclist Companion — website
 
 The public site for the Cyclist Companion app: privacy policy, support, and the
-tyre pressure methodology. Served by GitHub Pages at <https://velostables.com>.
+tyre pressure methodology. Served by GitHub Pages at <https://cc.velostables.com>.
 
-The custom domain is set by the `CNAME` file in this directory. DNS lives in
-Cloudflare: four A records on the apex pointing at GitHub's Pages addresses, and
-`www` as a CNAME to `thecooperx.github.io`. The Microsoft 365 `MX` and SPF `TXT`
-records are unrelated to hosting and must be left alone, or email breaks.
+The custom domain is set by the `CNAME` file in this directory:
+`cc.velostables.com`. DNS lives in Cloudflare, and because this is a subdomain
+rather than the apex it needs exactly **one** record:
+
+| Type | Name | Content | Proxy |
+| --- | --- | --- | --- |
+| CNAME | `cc` | `thecooperx.github.io` | DNS only |
+
+A subdomain is deliberate. The apex cannot hold a CNAME, so pointing
+`velostables.com` itself at Pages meant four A records that have to be edited
+by hand whenever GitHub changes an address, and it collided with the records
+already serving the root domain. `cc` sidesteps both.
+
+The root domain, its `www`, and the Microsoft 365 `MX` and SPF `TXT` records are
+nothing to do with hosting this site. Leave them alone — the `MX` and `TXT`
+records especially, or email breaks.
 
 ### If the site returns a Cloudflare error
 
@@ -15,31 +27,26 @@ makes GitHub Pages 301-redirect `thecooperx.github.io/cyclist-companion-site/`
 to the custom domain, so if the domain is misconfigured the github.io address
 fails too — and the app's in-app links use the github.io form.
 
-Checked 2026-09-03: `velostables.com` resolved to Cloudflare's proxy addresses
-and returned "Error. Page cannot be displayed", while GitHub Pages served the
-site correctly for that hostname:
+Ask GitHub directly, with the right `Host` header, before touching anything
+here:
 
 ```bash
-curl -s -o /dev/null -w '%{http_code}\n' -H 'Host: velostables.com' \
-  --insecure https://185.199.108.153/privacy/     # 200 — GitHub is fine
+curl -s -o /dev/null -w '%{http_code}\n' -H 'Host: cc.velostables.com' \
+  --insecure https://185.199.108.153/privacy/
 ```
 
-If that returns 200 while the public URL does not, the fault is in Cloudflare,
-not in this repository, and no amount of pushing will fix it. In the Cloudflare
-DNS tab:
+If that returns 200 while the public URL does not, the fault is in DNS and no
+amount of pushing to this repository will fix it. Check the `CNAME` record
+above exists, points at `thecooperx.github.io` (not at this repository's URL),
+and is set to **DNS only**. Proxying does work, but only with SSL/TLS mode
+**Full**; on **Flexible** it produces a redirect loop.
 
-| Type | Name | Content |
-| --- | --- | --- |
-| A | `velostables.com` | `185.199.108.153` |
-| A | `velostables.com` | `185.199.109.153` |
-| A | `velostables.com` | `185.199.110.153` |
-| A | `velostables.com` | `185.199.111.153` |
-| CNAME | `www` | `thecooperx.github.io` |
-
-Delete any other `A` or `AAAA` record on the apex — a leftover parking record is
-the usual cause. Set these to **DNS only** (grey cloud): proxying works, but
-only with SSL/TLS mode **Full**, and on **Flexible** it produces a redirect
-loop. Leave `MX` and `TXT` alone.
+This is how the apex failed on 2026-09-03: `velostables.com` resolved to
+Cloudflare proxy addresses with something other than Pages behind them, and
+served "Error. Page cannot be displayed" while GitHub was serving the site
+perfectly well. Both public URLs failed together, because the `CNAME` file makes
+GitHub redirect `thecooperx.github.io/cyclist-companion-site/` to the custom
+domain.
 
 The app's source lives in a separate private repository. Nothing here is
 generated from it — these are hand-written static pages with no build step, no
