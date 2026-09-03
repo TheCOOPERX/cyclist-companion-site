@@ -8,6 +8,39 @@ Cloudflare: four A records on the apex pointing at GitHub's Pages addresses, and
 `www` as a CNAME to `thecooperx.github.io`. The Microsoft 365 `MX` and SPF `TXT`
 records are unrelated to hosting and must be left alone, or email breaks.
 
+### If the site returns a Cloudflare error
+
+**Both URLs break together, which is the confusing part.** The `CNAME` file
+makes GitHub Pages 301-redirect `thecooperx.github.io/cyclist-companion-site/`
+to the custom domain, so if the domain is misconfigured the github.io address
+fails too — and the app's in-app links use the github.io form.
+
+Checked 2026-09-03: `velostables.com` resolved to Cloudflare's proxy addresses
+and returned "Error. Page cannot be displayed", while GitHub Pages served the
+site correctly for that hostname:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' -H 'Host: velostables.com' \
+  --insecure https://185.199.108.153/privacy/     # 200 — GitHub is fine
+```
+
+If that returns 200 while the public URL does not, the fault is in Cloudflare,
+not in this repository, and no amount of pushing will fix it. In the Cloudflare
+DNS tab:
+
+| Type | Name | Content |
+| --- | --- | --- |
+| A | `velostables.com` | `185.199.108.153` |
+| A | `velostables.com` | `185.199.109.153` |
+| A | `velostables.com` | `185.199.110.153` |
+| A | `velostables.com` | `185.199.111.153` |
+| CNAME | `www` | `thecooperx.github.io` |
+
+Delete any other `A` or `AAAA` record on the apex — a leftover parking record is
+the usual cause. Set these to **DNS only** (grey cloud): proxying works, but
+only with SSL/TLS mode **Full**, and on **Flexible** it produces a redirect
+loop. Leave `MX` and `TXT` alone.
+
 The app's source lives in a separate private repository. Nothing here is
 generated from it — these are hand-written static pages with no build step, no
 JavaScript and no external requests.
