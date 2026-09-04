@@ -86,10 +86,13 @@ Then open <http://localhost:8000>.
 
 - `.nojekyll` is present so GitHub Pages serves the files as-is rather than
   running them through Jekyll.
-- Keep the privacy policy honest. It currently claims the app makes no network
-  requests and collects nothing, which is true of the shipping build. If a
-  feature ever changes that — a weather lookup for temperature-adjusted pressure
-  is the likeliest candidate — update this policy *before* that version ships.
+- Keep the privacy policy honest, and keep every page saying the same thing.
+  The app collects nothing, but it is **not** true that it makes no network
+  requests — StoreKit talks to Apple to show the upgrade's price and to complete
+  or restore a purchase. Do not reintroduce that claim anywhere on this site; the
+  app repo forbids it too (`AGENTS.md`). If a feature ever adds network use of
+  its own — a weather lookup for temperature-adjusted pressure is the likeliest
+  candidate — update the policy *before* that version ships.
 - The methodology page deliberately documents the model's limits, including
   where it stops being valid above roughly 65 mm. Keep it in step with
   `lib/utils/pressure_math.dart` in the app repo.
