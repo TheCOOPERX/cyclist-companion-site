@@ -2,7 +2,11 @@
    No build step, no fonts to fetch, no JavaScript. */
 
 :root {
-  --brand: #E8541F;
+  /* Action orange. 5.00:1 on white, so it can carry link and button text.
+     The identity orange #E8541F (the icon's field) fails AA at 3.6:1 and is
+     therefore never used for text — it lives in the icon and the social card. */
+  --brand: #C8400F;
+  --brand-deep: #9E2B07;
   --brand-ink: #FFFFFF;
   --ground: #FBFAF8;
   --surface: #FFFFFF;
@@ -17,6 +21,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --brand: #FF8A54;
+    --brand-deep: #FFA470;
     --brand-ink: #1A1D20;
     --ground: #131619;
     --surface: #1A1E22;
@@ -185,3 +190,52 @@ footer.site p { margin: 0 0 8px; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+
+/* --------------------------------------------------------------------------
+   Home page hero: the product, shown rather than described.
+   -------------------------------------------------------------------------- */
+.hero { display: grid; gap: 30px; margin-bottom: 38px; }
+@media (min-width: 720px) {
+  .hero { grid-template-columns: 1fr 236px; gap: 34px; align-items: start; }
+}
+.hero h1 { margin-bottom: 10px; }
+.hero .lede { margin-bottom: 22px; }
+
+.device {
+  background: #17130F;
+  border-radius: 30px;
+  padding: 7px;
+  line-height: 0;
+  box-shadow: 0 1px 2px rgba(20,17,15,.24), 0 22px 44px -22px rgba(20,17,15,.5);
+}
+.device img { width: 100%; height: auto; display: block; border-radius: 23px; }
+@media (max-width: 719px) {
+  .hero-shot { max-width: 236px; }
+}
+
+/* Store call to action */
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 14px; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--brand); color: var(--brand-ink);
+  font-weight: 600; font-size: 16px; text-decoration: none;
+  padding: 13px 22px; border-radius: 11px;
+}
+.cta-btn:hover { background: var(--brand-deep); }
+.cta-soon {
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1.5px solid var(--rule); border-radius: 11px;
+  color: var(--ink-2); font-weight: 600; font-size: 15px;
+  padding: 11px 18px;
+}
+.cta-soon::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--brand); flex: none;
+}
+.aka { font-size: 14.5px; color: var(--ink-3); margin: 0; }
+.aka strong { color: var(--ink-2); font-weight: 600; }
+
+/* Publisher line beside the wordmark */
+header.site .brandblock { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+header.site .publisher { font-size: 12.5px; line-height: 1.3; color: var(--ink-3); }
