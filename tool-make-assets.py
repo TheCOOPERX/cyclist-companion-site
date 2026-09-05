@@ -22,10 +22,13 @@ APP = pathlib.Path('/Users/cetadmin/cyclist_companion')
 SHOT_SRC = APP / 'store/screenshots/6.9-inch/01-pressure.png'
 ICON_SRC = SITE / 'assets/icon.png'
 
-# Target brand tokens: Identity -> Deep. Phase C brings the app icon to these.
-IDENTITY = (0xE8, 0x54, 0x1F)
-DEEP = (0x9E, 0x2B, 0x07)
-BEZEL = (0x14, 0x11, 0x10)
+# The social card's ground. It is the light zinc, not the icon's dark field:
+# the app icon is itself dark green, so a dark card swallowed it whole — the
+# mark read as a white wheel floating on nothing. Light ground separates both
+# the icon and the phone's dark bezel.
+IDENTITY = (0xF3, 0xF5, 0xF3)
+DEEP = (0xDD, 0xE5, 0xE0)
+BEZEL = (0x0C, 0x12, 0x0F)
 
 
 # --------------------------------------------------------------------------

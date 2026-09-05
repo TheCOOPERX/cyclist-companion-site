@@ -2,34 +2,39 @@
    No build step, no fonts to fetch, no JavaScript. */
 
 :root {
-  /* Action orange. 5.00:1 on white, so it can carry link and button text.
-     The identity orange #E8541F (the icon's field) fails AA at 3.6:1 and is
-     therefore never used for text — it lives in the icon and the social card. */
-  --brand: #C8400F;
-  --brand-deep: #9E2B07;
+  /* Zinc and Racing Green — the app's palette, matched.
+     The orange this replaced measured dE2000 3.6 from Strava's brand orange,
+     which is the same colour to anyone with both apps installed.
+     Accent 7.06:1 on the ground, 7.74:1 under white. */
+  --brand: #1A5E3E;
+  --brand-deep: #0F4429;
   --brand-ink: #FFFFFF;
-  --ground: #FBFAF8;
+  --chrome: #1B2420;
+  --ground: #F3F5F3;
   --surface: #FFFFFF;
-  --ink: #1A1D20;
-  --ink-2: #454C53;
-  --ink-3: #6E777F;
-  --rule: #E2DFD9;
-  --sunk: #F2F0EC;
+  --ink: #121A15;
+  --ink-2: #46514A;
+  /* 4.79:1. The previous tertiary ink measured 4.37:1 and carried the nav and
+     footer links, so it was under AA before this palette arrived. */
+  --ink-3: #636F68;
+  --rule: #DDE3DE;
+  --sunk: #EAEFEB;
   --good: #1F6B4C;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --brand: #FF8A54;
-    --brand-deep: #FFA470;
-    --brand-ink: #1A1D20;
-    --ground: #131619;
-    --surface: #1A1E22;
-    --ink: #E9EBED;
-    --ink-2: #B4BCC3;
-    --ink-3: #8A939B;
-    --rule: #2B3137;
-    --sunk: #21262B;
+    --brand: #5FBF8F;
+    --brand-deep: #7FD0A5;
+    --brand-ink: #08130D;
+    --chrome: #0E1512;
+    --ground: #11150F;
+    --surface: #181D19;
+    --ink: #E4EAE6;
+    --ink-2: #AFBAB3;
+    --ink-3: #85908A;
+    --rule: #2A322C;
+    --sunk: #1F251F;
     --good: #6FC49C;
   }
 }
@@ -203,11 +208,11 @@ footer.site p { margin: 0 0 8px; }
 .hero .lede { margin-bottom: 22px; }
 
 .device {
-  background: #17130F;
+  background: var(--chrome);
   border-radius: 30px;
   padding: 7px;
   line-height: 0;
-  box-shadow: 0 1px 2px rgba(20,17,15,.24), 0 22px 44px -22px rgba(20,17,15,.5);
+  box-shadow: 0 1px 2px rgba(12,18,15,.24), 0 22px 44px -22px rgba(12,18,15,.5);
 }
 .device img { width: 100%; height: auto; display: block; border-radius: 23px; }
 @media (max-width: 719px) {
