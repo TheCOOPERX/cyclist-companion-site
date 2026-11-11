@@ -88,8 +88,8 @@ Then open <http://localhost:8000>.
   running them through Jekyll.
 - Keep the privacy policy honest, and keep every page saying the same thing.
   The app collects nothing, but it is **not** true that it makes no network
-  requests — StoreKit talks to Apple to show the upgrade's price and to complete
-  or restore a purchase. Do not reintroduce that claim anywhere on this site; the
+  requests — native rating/platform services may communicate with Apple.
+  Version 1.1 removes purchases; historical versions used StoreKit for Pro. Do not reintroduce that claim anywhere on this site; the
   app repo forbids it too (`AGENTS.md`). If a feature ever adds network use of
   its own — a weather lookup for temperature-adjusted pressure is the likeliest
   candidate — update the policy *before* that version ships.
